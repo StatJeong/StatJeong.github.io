@@ -1,20 +1,13 @@
-Rejection sampling
-================
-
-
-
-
-
-
-
-
-
-
+---
+title : "Rejection sampling"
+mathjax: true
+layout: post
+---
 
 ## 목적
 
 - 고등학생 미적분시간에 적분을 못하는 함수가 있다는 걸 경험 했다. ex)
-  $e^{x^2}$ , $\cdots$
+  $e^x^2$ , $\cdots$
 
 - 통계를 공부하는 입장으로써 적분이 필요한 계산이 많이 있다. ex) n차
   기댓값, 분산, $\cdots$
@@ -24,11 +17,14 @@ Rejection sampling
 
 - 그렇다면 포기해야 할까?
 
-$\hspace{20em}$
+<span style="color: red"> NO!</span>
 
 ## Monte carlo
 
 문제를 해결하는 방법으로 Monte carlo 방법이 있다.
+
+$$ E[h(X)] & = \int h(x) f(x) dx 
+ \approx \bar{h_n} = \frac{1}{n} \sum^n_{j=1} h(x_j) $$
 
 by Law of Large Number
 
@@ -47,16 +43,10 @@ X <- data.frame(iteration,sample_mean)
 ```
 
 ``` r
-library(ggplot2)
-ggplot() +
-  ggtitle("N(0,1)") +
-  ylim(-max(sample_mean),max(sample_mean)) +
-  geom_point(mapping = aes(x=iteration,y=sample_mean), data=X)
+plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 ```
 
-    ## Warning: Removed 2 rows containing missing values (`geom_point()`).
-
-![](무제_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+    
 
 ## 다른 문제점
 
@@ -66,7 +56,7 @@ ggplot() +
 
 -\> 직접 샘플을 만들어야 한다.
 
-- 보통 rnorm, rpoi, rgamma, $\cdots$ 으로 난수를 발생시켜야 한다.
+- 보통 rnorm, rpoi, rgamma, ... 으로 난수를 발생시켜야 한다.
 
 - 그런데, 친숙한 분포가 아니라면? ex) 베이지안 사후분포
 
@@ -76,7 +66,7 @@ ggplot() +
 
 분포함수 $F(X) = \int^x_{-\infty} f(t) dt$ 가 $U[0,1]$과 관계가 있다.
 
-- $F(X)$는 monotone function 이다.
+- $F(X)$ 는 monotone function 이다.
 
 - $\lim_{X\to -\infty} F(X) = 0, \lim_{X\to\infty} F(X) = 1$
 
