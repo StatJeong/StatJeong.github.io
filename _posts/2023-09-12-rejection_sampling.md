@@ -17,7 +17,7 @@ layout: post
 
 - 그렇다면 포기해야 할까?
 
-$\hspace{20em}$ \Bigg{NO!}
+$NO!$
 
 ## Monte carlo
 
@@ -75,6 +75,11 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 
 - $F(X) = U$ 라고 잡으면 밑에 처럼 볼 수 있다.
 
+$$\begin{aligned} P(U\leq u) & = P[F(X)\leq F(x)] \\
+& = P[F^{-1}(F(X))\leq F^{-1}(F(x))] = P(X\leq x) \end{aligned}$$
+
+
+
 ## Rejection Sampling
 
 - “acceptance-rejection method” 또는 “accept-reject algorithm” 이라고도
@@ -84,7 +89,7 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 
 2.  목적에 맞게끔 M을 설정해야 한다.
 
-3.  $u_i$ ~ U$$0,1$$ 인 난수를 만든다.
+3.  $u_i$ ~ $U[0,1]$ 인 난수를 만든다.
 
 4.  $y_i$ 난수를 만든다.
 
@@ -96,6 +101,14 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 ## 
 
 확률로써 저 방법도 맞는 건가 확인해보자.
+
+$$\begin{aligned} 
+P(Y\leq x | U\leq \frac{f(Y)}{M g(Y)}) & = 
+\frac\{P(Y\leq x, U\leq \frac{f(Y)}{M g(Y)})\}\{P(U\leq \frac{f(Y)}{M g(Y)})\} \\
+& = \frac\{\int^x_{-\infty}\int_0^{f(y)/Mg(Y)} du \quad g(y)dy\}\{\int_{-\infty}^{\infty} \int_0^{f(y)/Mg(Y)} du \quad g(y)dy\} \\
+& = \frac{\int^x_{-\infty} \frac{f(y)}{M g(y)} g(y) dy}{\int_{-\infty}^{\infty} \frac{f(y)}{M g(y)} g(y) dy} \\
+& = \frac{\int^x_{-\infty}f(y) dy}{\int^{\infty}_{-\infty}f(y) dy} = P(X\leq x) \\
+\end{aligned}$$
 
 ## 
 
