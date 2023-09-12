@@ -56,7 +56,7 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 
 -\> 직접 샘플을 만들어야 한다.
 
-- 보통 rnorm, rpoi, rgamma, ... 으로 난수를 발생시켜야 한다.
+- 보통 rnorm, rpoi, rgamma, $\cdots$ 으로 난수를 발생시켜야 한다.
 
 - 그런데, 친숙한 분포가 아니라면? ex) 베이지안 사후분포
 
