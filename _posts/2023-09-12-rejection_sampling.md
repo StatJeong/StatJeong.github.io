@@ -17,7 +17,7 @@ layout: post
 
 - 그렇다면 포기해야 할까?
 
-<span style="color: red"> NO!</span>
+$\hspace{20em}$ \textcolor{blue}{\LARGE No!}
 
 ## Monte carlo
 
