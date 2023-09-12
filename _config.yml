@@ -1,8 +1,8 @@
-title: "Jeong's Blog"
+title: "통계 공부"
 author: "Youngdoo Jeong"
 description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
 permalink: /:title/
-lang: "ko"
+lang: "en"
 excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
 
