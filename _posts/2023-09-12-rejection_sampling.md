@@ -106,13 +106,15 @@ $$
 
 확률로써 저 방법도 맞는 건가 확인해보자.
 
-$$\begin{aligned} 
+$$
+\begin{aligned} 
 P(Y\leq x | U\leq \frac{f(Y)}{M g(Y)}) & = 
 \frac\{P(Y\leq x, U\leq \frac{f(Y)}{M g(Y)})\}\{P(U\leq \frac{f(Y)}{M g(Y)})\} \\
 & = \frac\{\int^x_{-\infty}\int_0^{f(y)/Mg(Y)} du \quad g(y)dy\}\{\int_{-\infty}^{\infty} \int_0^{f(y)/Mg(Y)} du \quad g(y)dy\} \\
 & = \frac{\int^x_{-\infty} \frac{f(y)}{M g(y)} g(y) dy}{\int_{-\infty}^{\infty} \frac{f(y)}{M g(y)} g(y) dy} \\
 & = \frac{\int^x_{-\infty}f(y) dy}{\int^{\infty}_{-\infty}f(y) dy} = P(X\leq x) \\
-\end{aligned}$$
+\end{aligned}
+$$
 
 ## 
 
