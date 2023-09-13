@@ -51,7 +51,7 @@ X <- data.frame(iteration,sample_mean)
 plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 ```
 
-![](result_pic/무제_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](/result_pic/무제_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ## 다른 문제점
 
@@ -129,18 +129,6 @@ where, $x\in [0,2.5]$
 ## 
 
 ``` r
-curve(h(x)*f(x), 0, 2.5, add = FALSE, ylim=c(0,3),
-      type = "l", lwd=3)
-abline(a = 1/2.5, b = 0, col = "green", lwd=3)
-abline(a = exp(1), b = 0, col = "orange" ,lwd=3)
-legend("right", legend = c("h(x)*f(x)","Proposal",
-                           "M*Proposal"),
-       col = c("black","green","orange"), lwd=3, cex=1.2)
-```
-
-## 
-
-``` r
 curve(h(x)*f(x), 0, 2.5, add = FALSE, ylim=c(0,3), type = "l", lwd=3)
 abline(a = 1/2.5, b = 0, col = "green", lwd=3)
 abline(a = exp(1), b = 0, col = "orange" ,lwd=3)
@@ -148,7 +136,7 @@ legend("right", legend = c("h(x)*f(x)","Proposal","M*Proposal"),
        col = c("black","green","orange"), lwd=3, cex=1.2)
 ```
 
-![](result_pic/무제_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](/result_pic/무제_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## 
 
@@ -172,27 +160,12 @@ curve(proposal, add=TRUE, col="green", lwd=3)
 curve(M*proposal(x), add=TRUE, col="orange", lwd=3)
 points(X, exp(1)*U, pch=ifelse(accept,1,4),
        col=ifelse(accept,"blue","red"),lwd=2)
-legend("topright", c("target","proposal","M*proposal",
-                     "accepted","rejected"), 
-       lwd=c(3,3,3,NA,NA), col=c("black","green","orange",
-                                 "blue","red"),
-       pch=c(NA,NA,NA,1,4), bg="white", cex=1.2)
-```
-
-## 
-
-``` r
-curve(target, 0, 2.5, ylim=c(0,2.8), lwd=3)
-curve(proposal, add=TRUE, col="green", lwd=3)
-curve(M*proposal(x), add=TRUE, col="orange", lwd=3)
-points(X, exp(1)*U, pch=ifelse(accept,1,4),
-       col=ifelse(accept,"blue","red"),lwd=2)
 legend("topright", c("target","proposal","M*proposal","accepted","rejected"), 
        lwd=c(3,3,3,NA,NA), col=c("black","green","orange","blue","red"),
        pch=c(NA,NA,NA,1,4), bg="white", cex=1.2)
 ```
 
-![](result_pic/무제_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](/result_pic/무제_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ## 
 
