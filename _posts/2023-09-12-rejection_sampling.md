@@ -1,7 +1,7 @@
 ---
 title : "Rejection sampling"
 mathjax: true
-layout: default
+layout: post
 ---
 
 
