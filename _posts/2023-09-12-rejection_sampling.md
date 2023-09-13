@@ -7,10 +7,10 @@ layout: post
 ## 목적
 
 - 고등학생 미적분시간에 적분을 못하는 함수가 있다는 걸 경험 했다. ex)
-  \\(e^{x^2}\\) , $\cdots$
+  \\(e^{x^2}\\) , \\(\cdots\\)
 
 - 통계를 공부하는 입장으로써 적분이 필요한 계산이 많이 있다. ex) n차
-  기댓값, 분산, $\cdots$
+  기댓값, 분산, \\(\cdots\\)
 
 - 그런데 직접적분이 어려운 분포들이 있을 때 난감하다. ex) 베이지안의
   사후분포, 다변량 분포
@@ -55,7 +55,7 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 
 -\> 직접 샘플을 만들어야 한다.
 
-- 보통 rnorm, rpoi, rgamma, $\cdots$ 으로 난수를 발생시켜야 한다.
+- 보통 rnorm, rpoi, rgamma, \\(\cdots\\) 으로 난수를 발생시켜야 한다.
 
 - 그런데, 친숙한 분포가 아니라면? ex) 베이지안 사후분포
 
@@ -63,16 +63,16 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 
 ## 그전에
 
-분포함수 $F(X) = \int^x_{-\infty} f(t) dt$ 가 $U[0,1]$과 관계가 있다.
+분포함수 \\(F(X) = \int^x_{-\infty} f(t) dt\\) 가 \\(U[0,1]\\)과 관계가 있다.
 
-- $F(X)$는 monotone function 이다.
+- \\(F(X)\\)는 monotone function 이다.
 
-- $\lim_{X\to -\infty} F(X) = 0$, $\lim_{X\to\infty} F(X) = 1$
+- \\(\lim_{X\to -\infty} F(X) = 0\\), \\(\lim_{X\to\infty} F(X) = 1\\)
 
-- 그러므로 $F(X)$는 $U[0,1]$ 이 일대일 관계를 갖기에 역함수를 가질 수
+- 그러므로 \\(F(X)\\)는 \\(U[0,1]\\) 이 일대일 관계를 갖기에 역함수를 가질 수
   있다.
 
-- $F(X) = U$ 라고 잡으면 밑에 처럼 볼 수 있다.
+- \\(F(X) = U\\) 라고 잡으면 밑에 처럼 볼 수 있다.
 
 $$
 \begin{aligned} P(U\leq u) & = P[F(X)\leq F(x)] \\
@@ -84,17 +84,17 @@ $$
 - “acceptance-rejection method” 또는 “accept-reject algorithm” 이라고도
   부른다.
 
-1.  내가 다루기 쉬운 proposal density $g(y)$ 가 필요하다.
+1.  내가 다루기 쉬운 proposal density \\(g(y)\\) 가 필요하다.
 
 2.  목적에 맞게끔 M을 설정해야 한다.
 
-3.  $u_i$ ~ $U[0,1]$ 인 난수를 만든다.
+3.  \\(u_i\\) ~ \\(U[0,1]\\) 인 난수를 만든다.
 
-4.  $y_i$ 난수를 만든다.
+4.  \\(y_i\\) 난수를 만든다.
 
 5.  알고리즘을 실행한다.
 
-- $u_i \leq \frac{f(y_i)}{M g(y_i)}$ 를 만족하면 accept 그러지 않으면
+- \\(u_i \leq \frac{f(y_i)}{M g(y_i)}\\) 를 만족하면 accept 그러지 않으면
   reject 한다.
 
 ### 
@@ -115,14 +115,14 @@ $$
 
 예시로 쓸 함수를 설정해보자
 
-$E(h(x))$ 를 구할 때, $h$ 와 $X$의 밀도함수는 밑에와 같다.
+\\(E(h(x))\\) 를 구할 때, \\(h\\) 와 \\(X\\)의 밀도함수는 밑에와 같다.
 
 ``` r
 h <- function(x){exp(-x + cos(x))}
 f <- function(x){exp(-x)}
 ```
 
-where, $x\in [0,2.5]$
+where, \\(x\in [0,2.5]\\)
 
 ###
 
@@ -187,6 +187,18 @@ c(sum(accept)/m, 1/M)
 
     ## [1] 0.1600000 0.1471518
 
+2.38과 1.16은 차이가 많이 크다. 
+
+이유가 샘플이 충분하지 않은 것도 있지만, proposal density가 적절하지 않아서 그런 것도 있다.
+여기선 plot으로 그림을 보이기 위해 proposal을 unif로 둔 것일 뿐 보다 적절한 proposal을 지정하면 된다.
+
+돌려보니 proposal로 지수분포를 쓰니 보다 적절한 추정량이 나왔다
+
+또한 target density가 modal의 형태가 아니라서 적절한 sampling을 추출하지 못했다.
+
+
+
+
 ## 결론
 
 장점
@@ -209,5 +221,4 @@ c(sum(accept)/m, 1/M)
 
 버려지는 샘플을 보안하기 위해 Importace Sampling 을 설명하려 합니다.
 
-그 후에는 Markov Chain Monte Carlo 방법을 이용한 샘플링도 설명하려
-합니다.
+보다 적절한 제안분포를 적용하면 어떻게 되는 지 확인해 보려 합니다.
