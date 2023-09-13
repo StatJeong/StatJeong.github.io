@@ -22,7 +22,7 @@ categories: media
 
 - 그렇다면 포기해야 할까?
 
-$\hspace{20em}$
+ <span style="color:red">NO!</span>
 
 ## Monte carlo
 
