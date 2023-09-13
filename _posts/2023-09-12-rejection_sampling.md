@@ -32,7 +32,7 @@ $$ E[h(X)] = \int h(x) f(x) dx \approx \bar{h_n} = \frac{1}{n} \sum^n_{j=1} h(x_
 
 by Law of Large Number
 
-## 
+### 
 
 ``` r
 n <- 10^4
@@ -102,7 +102,7 @@ $$
 - $u_i \leq \frac{f(y_i)}{M g(y_i)}$ 를 만족하면 accept 그러지 않으면
   reject 한다.
 
-## 
+### 
 
 확률로써 저 방법도 맞는 건가 확인해보자.
 
@@ -129,7 +129,7 @@ f <- function(x){exp(-x)}
 
 where, $x\in [0,2.5]$
 
-## 
+###
 
 ``` r
 curve(h(x)*f(x), 0, 2.5, add = FALSE, ylim=c(0,3), type = "l", lwd=3)
@@ -141,7 +141,7 @@ legend("right", legend = c("h(x)*f(x)","Proposal","M*Proposal"),
 
 ![](/result_pic/무제_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-## 
+### 
 
 ``` r
 m <- 1000
@@ -155,7 +155,7 @@ proposal <- function(x){dunif(x, 0, 2.5)}
 accept <- U < (target(X)/(M*proposal(X)))
 ```
 
-## 
+### 
 
 ``` r
 curve(target, 0, 2.5, ylim=c(0,2.8), lwd=3)
@@ -170,7 +170,7 @@ legend("topright", c("target","proposal","M*proposal","accepted","rejected"),
 
 ![](/result_pic/무제_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-## 
+### 
 
 target 함수의 정확한 적분값은 1.16… 정도이다.
 
