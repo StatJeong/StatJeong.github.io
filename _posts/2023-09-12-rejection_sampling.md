@@ -28,8 +28,7 @@ $\hspace{20em}$
 
 문제를 해결하는 방법으로 Monte carlo 방법이 있다.
 
-$$ E[h(X)] = \int h(x) f(x) dx 
- \approx \bar{h_n} = \frac{1}{n} \sum^n_{j=1} h(x_j) $$
+$$ E[h(X)] = \int h(x) f(x) dx \approx \bar{h_n} = \frac{1}{n} \sum^n_{j=1} h(x_j) $$
 
 by Law of Large Number
 
