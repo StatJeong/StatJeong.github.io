@@ -67,7 +67,7 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 
 - $F(X)$는 monotone function 이다.
 
-- $\lim_{X\to -\infty} F(X) = 0, \lim_{X\to\infty} F(X) = 1$
+- $\lim_{X\to -\infty} F(X) = 0$, $\lim_{X\to\infty} F(X) = 1$
 
 - 그러므로 $F(X)$는 $U[0,1]$ 이 일대일 관계를 갖기에 역함수를 가질 수
   있다.
