@@ -2,7 +2,6 @@
 title : "Rejection sampling"
 mathjax: true
 layout: post
-categories: media
 ---
 
 
