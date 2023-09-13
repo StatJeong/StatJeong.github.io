@@ -79,8 +79,10 @@ plot(X, main="N(0,1)", ylim=c(-max(sample_mean),max(sample_mean)))
 
 - $F(X) = U$ 라고 잡으면 밑에 처럼 볼 수 있다.
 
-$$\begin{aligned} P(U\leq u) & = P[F(X)\leq F(x)] \\
-& = P[F^{-1}(F(X))\leq F^{-1}(F(x))] = P(X\leq x) \end{aligned}$$
+$$
+\begin{aligned} P(U\leq u) & = P[F(X)\leq F(x)] \\
+& = P[F^{-1}(F(X))\leq F^{-1}(F(x))] = P(X\leq x) \end{aligned}
+$$
 
 ## Rejection Sampling
 
